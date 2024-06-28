@@ -54,33 +54,33 @@ inventory={
     }
 def main():
     print("Welcome to the inventory management system")
-def add_item():
-   name=input("Enter the name of the item: ")
-   price=int(input("Enter the price of the item: "))
-   count=int(input("Enter the count of the item: "))
-   inventory[name]={"price":price, "count":count}
-   return print(inventory)
-def buy_item():
-    name=input("Enter the name of the item: ")
-    count=int(input("Enter the count of the item: "))
-    if name in inventory:
-        if inventory[name]["count"]>=count:
-            inventory[name]["count"]-=count
-            print("Item purchased successfully")
+    def add_item():
+        name=input("Enter the name of the item: ")
+        price=int(input("Enter the price of the item: "))
+        count=int(input("Enter the count of the item: "))
+        inventory[name]={"price":price, "count":count}
+        return print(inventory)
+    def buy_item():
+        name=input("Enter the name of the item: ")
+        count=int(input("Enter the count of the item: "))
+        if name in inventory:
+            if inventory[name]["count"]>=count:
+                inventory[name]["count"]-=count
+                print("Item purchased successfully")
+            else:
+                print("item not available")
+    def change_price():
+        name = input("Enter the name of the item: ")
+        if name in inventory:
+            price = int(input("Enter the new price of the item: "))
+            inventory[name]["price"] = price
+            print("Price updated successfully")
         else:
-            print("item not available")
-def change_price():
-    name = input("Enter the name of the item: ")
-    if name in inventory:
-        price = int(input("Enter the new price of the item: "))
-        inventory[name]["price"] = price
-        print("Price updated successfully")
-    else:
-        print("Item not found in inventory")
-def update_inventory():
-     name=input("Enter the name of the item:")
-     count=int(input("Enter the new count of the item:"))
-     for key , values in inventory.items():
+            print("Item not found in inventory")
+    def update_inventory():
+        name=input("Enter the name of the item:")
+        count=int(input("Enter the new count of the item:"))
+        for key , values in inventory.items():
           if key==name:
                inventory[key]["count"]=count
                print("Count updated successfully")
@@ -88,14 +88,15 @@ def update_inventory():
           else:
                print("item not available")
                exit()
-def display_inventory():
-     total_sale=0
-     print("Inventory:")
-     for key , values in inventory.items():
+    def display_inventory():
+        total_sale=0
+        print("Inventory:")
+
+        for key , values in inventory.items():
           print(f"{key} : {values['count']}")
           total_sale+=values['price']*values['count']
           print(f"Total sales: {total_sale}")
-def main():
+    
     
     while True:
         print("1. Add item")
@@ -124,7 +125,7 @@ def main():
         else:
             print("Invalid choice")
             continue
-print("Welcome to the inventory management system")
+    
 
 print(inventory)
 main()
