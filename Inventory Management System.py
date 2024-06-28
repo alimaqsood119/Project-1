@@ -77,59 +77,6 @@ def main():
             print("Price updated successfully")
         else:
             print("Item not found in inventory")
-    def update_inventory():
-        name=input("Enter the name of the item:")
-        count=int(input("Enter the new count of the item:"))
-        for key , values in inventory.items():
-          if key==name:
-               inventory[key]["count"]=count
-               print("Count updated successfully")
-               break
-          else:
-               print("item not available")
-               exit()
-    def display_inventory():
-        total_sale=0
-        print("Inventory:")
-
-        for key , values in inventory.items():
-          print(f"{key} : {values['count']}")
-          total_sale+=values['price']*values['count']
-          print(f"Total sales: {total_sale}")
-    
-    
-    while True:
-        print("1. Add item")
-        print("2. Buy item")
-        print("3. Change price")
-        print("4. Display inventory")
-        print("5. Update inventory count")
-        print("6. Exit")
-        try:
-            choice = int(input("Enter your choice: "))
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-            continue
-        if choice==1:
-            add_item()
-        elif choice==2:
-            buy_item()
-        elif choice==3:
-            change_price()
-        elif choice==4:
-            display_inventory()
-        elif choice==5:
-            update_inventory()
-        elif choice==6:
-            exit()
-        else:
-            print("Invalid choice")
-            continue
-    
-
-print(inventory)
-
-
-main()
+        
     
        
