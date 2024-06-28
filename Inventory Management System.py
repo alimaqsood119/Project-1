@@ -128,4 +128,6 @@ def main():
     
 
 print(inventory)
+print(inventory)
+
 main()
